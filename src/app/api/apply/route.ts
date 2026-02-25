@@ -53,17 +53,20 @@ export async function POST(req: NextRequest) {
 
     // 2. Setup Google Auth
     const googleKey = process.env.GOOGLE_PRIVATE_KEY;
+    const googleJson = process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
     const isPath = googleKey?.startsWith("/") || googleKey?.endsWith(".json");
 
     const auth = new google.auth.GoogleAuth({
-      ...(isPath 
-        ? { keyFile: googleKey } 
-        : { 
-            credentials: {
-              client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-              private_key: googleKey?.replace(/\\n/g, "\n").replace(/^"|"$/g, ""),
-            }
-          }),
+      ...(googleJson 
+        ? { credentials: JSON.parse(googleJson) }
+        : isPath 
+          ? { keyFile: googleKey } 
+          : { 
+              credentials: {
+                client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+                private_key: googleKey?.replace(/\\n/g, "\n").replace(/^"|"$/g, ""),
+              }
+            }),
       scopes: SHEETS_SCOPE,
     });
 
