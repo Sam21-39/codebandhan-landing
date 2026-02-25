@@ -13,15 +13,15 @@ const violations = [
   },
   { 
     id: 2, 
-    title: 'Business logic in UI', 
+    title: 'Business Logic in UI', 
     icon: <AlertTriangle className="size-4 text-accent-amber" />,
-    desc: 'Complex state derivation in View layer'
+    desc: 'Complex state derivation in view layer'
   },
   { 
     id: 3, 
-    title: 'Circular dependency', 
+    title: 'Circular Dependency', 
     icon: <AlertTriangle className="size-4 text-accent-critical" />,
-    desc: 'Module loop detected in Core'
+    desc: 'Module loop detected in core'
   }
 ];
 

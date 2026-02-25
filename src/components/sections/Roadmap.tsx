@@ -32,8 +32,9 @@ const phases = [
 ];
 
 export function Roadmap() {
+  const sectionRef = React.useRef<HTMLElement>(null);
   return (
-    <section id="roadmap" className="py-32 bg-background relative overflow-hidden">
+    <section ref={sectionRef} id="roadmap" className="py-32 bg-background relative overflow-hidden">
       <div className="container-wide relative">
         <div className="text-center mb-32">
           <span className="label-caps mb-4 block">Future</span>
@@ -43,7 +44,7 @@ export function Roadmap() {
         </div>
 
         <div className="relative max-w-4xl mx-auto">
-          <TimelineProgress />
+          <TimelineProgress containerRef={sectionRef} />
           
           <div className="space-y-24">
             {phases.map((p, i) => (
@@ -78,12 +79,12 @@ export function Roadmap() {
                    <motion.div 
                      initial={{ backgroundColor: 'rgb(55 65 81)', boxShadow: '0 0 0px rgba(0,200,150,0)' }}
                      whileInView={{ 
-                       backgroundColor: p.status === 'current' ? 'rgb(0 200 150)' : 'rgb(0 200 150 / 0.5)',
-                       boxShadow: p.status === 'current' ? '0 0 20px rgba(0,200,150,0.5)' : '0 0 10px rgba(0,200,150,0.2)',
-                       scale: 1.2
+                       backgroundColor: p.status === 'current' ? 'rgb(0 200 150)' : 'rgb(0 200 150 / 0.4)',
+                       boxShadow: p.status === 'current' ? '0 0 15px rgba(0,200,150,0.3)' : '0 0 5px rgba(0,200,150,0.1)',
+                       scale: 1.1 // Subtler scale
                      }}
                      viewport={{ once: false, margin: "-150px" }}
-                     className={`size-4 rounded-full border-4 border-background z-10 transition-all duration-500`} 
+                     className={`size-3 rounded-full border-2 border-background z-10 transition-all duration-500`} // Smaller size
                    />
                 </div>
 

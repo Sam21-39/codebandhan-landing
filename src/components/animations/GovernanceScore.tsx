@@ -40,7 +40,7 @@ export function GovernanceScore({ targetScore = 78 }: { targetScore?: number }) 
       </svg>
       
       <div className="text-center">
-        <motion.span className="text-5xl md:text-7xl font-heading font-black text-white leading-none">
+        <motion.span className="text-5xl md:text-7xl font-heading font-black text-white leading-none shadow-primary/20" style={{ textShadow: '0 0 20px rgba(0,255,160,0.2)' }}>
           {value}
         </motion.span>
         <p className="text-[10px] uppercase tracking-widest font-black text-text-muted mt-2">

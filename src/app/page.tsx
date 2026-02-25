@@ -3,6 +3,7 @@ import { Hero } from '@/components/sections/Hero';
 import { Problem } from '@/components/sections/Problem';
 import { Solution } from '@/components/sections/Solution';
 import { HowItWorks } from '@/components/sections/HowItWorks';
+import { Pricing } from '@/components/sections/Pricing';
 import { BetaAccess } from '@/components/sections/BetaAccess';
 import { FrameworkCoverage } from '@/components/sections/FrameworkCoverage';
 import { Roadmap } from '@/components/sections/Roadmap';
@@ -20,6 +21,7 @@ export default function Home() {
         <Problem />
         <Solution />
         <HowItWorks />
+        <Pricing />
         <BetaAccess />
         <FrameworkCoverage />
         <Roadmap />

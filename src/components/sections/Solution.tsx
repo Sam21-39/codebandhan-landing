@@ -43,12 +43,12 @@ export function Solution() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
             >
-              <Card className="h-full flex flex-col items-center text-center p-10 bg-surface/20 border-border/30 hover:bg-surface/40 transition-premium">
+              <Card className="h-full flex flex-col items-center text-center p-10 bg-surface/10 border-border/20 hover:bg-surface/20 transition-premium">
                 <div className="size-16 rounded-2xl bg-primary/5 border border-primary/10 flex items-center justify-center mb-8">
                   {cap.icon}
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4 tracking-tight">{cap.title}</h3>
-                <p className="text-text-muted leading-relaxed">
+                <p className="text-text-muted text-sm leading-relaxed">
                   {cap.desc}
                 </p>
               </Card>

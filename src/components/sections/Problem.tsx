@@ -7,23 +7,23 @@ import { BrainCircuit, GitBranchPlus, GitMerge, FileCode2 } from 'lucide-react';
 
 const problems = [
   {
-    title: 'Architectural Drift',
+    title: 'Silent Sprawl',
     desc: 'Features slowly couple. Boundaries blur. Modules become impossible to test in isolation.',
     icon: <GitBranchPlus className="size-6 text-primary" />,
   },
   {
-    title: 'Subjective Code Reviews',
+    title: 'Subjective Reviews',
     desc: '"Feels wrong" isn\'t measurable. Structural integrity depends on reviewer bandwidth.',
     icon: <BrainCircuit className="size-6 text-primary" />,
   },
   {
-    title: 'Backend Entanglement',
+    title: 'Dependency Web',
     desc: 'Services become tightly bound and fragile. Changing one endpoint breaks three others.',
     icon: <GitMerge className="size-6 text-primary" />,
   },
   {
-    title: 'State Management Bloat',
-    desc: 'Patterns multiply without governance. Logic leaks into the UI layer quietly.',
+    title: 'State Leaks',
+    desc: 'Patterns multiply without governance. Business logic leaks into the UI layer quietly.',
     icon: <FileCode2 className="size-6 text-primary" />,
   }
 ];
@@ -35,8 +35,8 @@ export function Problem() {
         <div className="max-w-3xl mb-16">
           <span className="label-caps mb-4 block">The Challenge</span>
           <h2 className="text-4xl md:text-6xl font-heading font-black text-white leading-tight">
-            Scaling Codebases <br/>
-            <span className="text-text-muted italic">Break Quietly.</span>
+            Complex Systems <br/>
+            <span className="text-text-muted italic">Scale Poorly.</span>
           </h2>
         </div>
 

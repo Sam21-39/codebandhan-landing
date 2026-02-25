@@ -31,12 +31,12 @@ export function Hero() {
           </div>
 
           <h1 className="text-5xl lg:text-7xl font-heading font-black leading-[1.1] mb-6 tracking-tight text-white">
-            Engineering Governance <br/>
-            <span className="text-primary italic">For Modern Teams.</span>
+            Architectural Guardrails <br/>
+            <span className="text-primary italic">For Scaling Teams.</span>
           </h1>
 
           <p className="text-lg md:text-xl text-text-muted mb-8 max-w-lg leading-relaxed">
-            Automated architecture validation and structural scoring for scaling engineering teams. prevent technical debt before it becomes a rewrite.
+            Automated AST-based validation that stops structural decay before it warrants a rewrite. Deploy with confidence.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
@@ -51,18 +51,18 @@ export function Hero() {
 
           <div className="mt-12 flex items-center gap-6">
             <div className="flex flex-col gap-1">
-              <span className="text-[10px] uppercase tracking-widest font-black text-text-muted">Live Frameworks</span>
+              <span className="text-[10px] uppercase tracking-widest font-black text-text-muted/60">Live Frameworks</span>
               <div className="flex gap-4">
-                <span className="text-xs font-bold text-white">Flutter</span>
-                <span className="text-xs font-bold text-white">Express / TS</span>
+                <span className="text-xs font-bold text-white/80">Flutter</span>
+                <span className="text-xs font-bold text-white/80">Express / TS</span>
               </div>
             </div>
-            <div className="w-[1px] h-8 bg-border" />
+            <div className="w-[1px] h-8 bg-border/40" />
             <div className="flex flex-col gap-1">
-              <span className="text-[10px] uppercase tracking-widest font-black text-text-muted">Planned</span>
+              <span className="text-[10px] uppercase tracking-widest font-black text-text-muted/60">Planned</span>
               <div className="flex gap-4 opacity-50">
-                <span className="text-xs font-bold text-text-muted underline decoration-primary/30">React Native</span>
-                <span className="text-xs font-bold text-text-muted decoration-primary/30">Native iOS</span>
+                <span className="text-xs font-bold text-text-muted/60 underline decoration-primary/20">React Native</span>
+                <span className="text-xs font-bold text-text-muted/60 underline decoration-primary/20">Native iOS</span>
               </div>
             </div>
           </div>

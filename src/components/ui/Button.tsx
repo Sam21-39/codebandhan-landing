@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, type HTMLMotionProps } from 'framer-motion';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -9,9 +9,10 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends HTMLMotionProps<"button"> {
   variant?: 'primary' | 'secondary' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
+  fullWidth?: boolean;
   isLoading?: boolean;
 }
 
@@ -19,6 +20,7 @@ export function Button({
   className,
   variant = 'primary',
   size = 'md',
+  fullWidth = false,
   isLoading,
   children,
   ...props
@@ -35,6 +37,10 @@ export function Button({
     lg: 'px-10 py-4 text-lg',
   };
 
+  // Prevent industrial props like variant/size/fullWidth/isLoading from leaking to the DOM
+  const filteredProps = { ...props };
+  // No need to manually delete if we just use motion.button and extracted them in destructuring
+
   return (
     <motion.button
       whileTap={{ scale: 0.98 }}
@@ -42,6 +48,7 @@ export function Button({
         'btn select-none',
         variants[variant],
         sizes[size],
+        fullWidth && 'w-full',
         className
       )}
       disabled={isLoading || props.disabled}
