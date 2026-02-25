@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CodeBandhan Landing (Next.js)
 
-## Getting Started
+Conversion-focused landing page for CodeBandhan with CTA capture into Google Sheets.
 
-First, run the development server:
+## Stack
+
+- Next.js App Router
+- React
+- Google Sheets API (`googleapis`)
+
+## Local run
 
 ```bash
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Google Sheets lead capture setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Create a Google Cloud project.
+2. Enable `Google Sheets API`.
+3. Create a Service Account and generate a JSON key.
+4. Copy these values into `.env.local`:
+   - `GOOGLE_SERVICE_ACCOUNT_EMAIL`
+   - `GOOGLE_PRIVATE_KEY`
+   - `GOOGLE_SHEETS_SPREADSHEET_ID`
+   - optional `GOOGLE_SHEETS_SHEET_NAME` (defaults to `Leads`)
+5. Share your target Google Sheet with the service account email as `Editor`.
+6. Create header columns in row 1 to match appended values:
+   - `timestamp_iso`
+   - `interest`
+   - `full_name`
+   - `work_email`
+   - `company`
+   - `team_size`
+   - `repo_url`
+   - `notes`
+   - `utm_source`
+   - `utm_medium`
+   - `utm_campaign`
+   - `referrer`
+   - `landing_path`
+   - `user_agent`
+   - `ip_forwarded_for`
 
-## Learn More
+Submissions are written via `POST /api/lead`.
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment: Hostinger or Vercel?
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Both can work.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Use **Vercel** if you want the easiest/fastest path for Next.js + API routes.
+- Use **Hostinger** only if your plan supports persistent Node.js runtime (or VPS) for `next start`.
 
-## Deploy on Vercel
+Recommended for this project: **Vercel + your `codebandhan.com` domain**.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Domain setup (recommended)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Deploy this repo to Vercel.
+2. Add `codebandhan.com` in Vercel project domains.
+3. Update DNS at Hostinger to Vercel records:
+   - apex `A` to `76.76.21.21`
+   - `www` CNAME to `cname.vercel-dns.com`
+4. Add production env vars in Vercel project settings.
+
+If you insist on Hostinger-only deployment, use a VPS and run:
+
+```bash
+npm ci
+npm run build
+npm run start
+```
+
+with reverse proxy + SSL configured.
