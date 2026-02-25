@@ -31,23 +31,27 @@ export function Hero() {
           </div>
 
           <h1 className="text-5xl lg:text-7xl font-heading font-black leading-[1.1] mb-6 tracking-tight text-white">
-            Architectural Guardrails <br/>
-            <span className="text-primary italic">For Scaling Teams.</span>
+            Govern Engineering <br/>
+            <span className="text-white">Before It Governs You.</span>
           </h1>
 
           <p className="text-lg md:text-xl text-text-muted mb-8 max-w-lg leading-relaxed">
-            Automated AST-based validation that stops structural decay before it warrants a rewrite. Deploy with confidence.
+            CodeBandhan is a governance layer for scaling teams — enforcing architectural discipline, measurable standards, and structural code evolution.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
             <Button onClick={scrollToForm} size="lg" className="group">
-              Apply for Beta Access
+              Request Beta Access
               <ChevronRight className="size-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button variant="secondary" size="lg" onClick={() => document.getElementById('roadmap')?.scrollIntoView({ behavior: 'smooth' })}>
               View Roadmap
             </Button>
           </div>
+          <p className="text-xs text-text-muted mt-4 font-bold flex items-center gap-2">
+            <span className="size-1.5 rounded-full bg-primary inline-block" />
+            Cohort-based beta. 15 teams per cohort.
+          </p>
 
           <div className="mt-12 flex items-center gap-6">
             <div className="flex flex-col gap-1">
@@ -62,7 +66,7 @@ export function Hero() {
               <span className="text-[10px] uppercase tracking-widest font-black text-text-muted/60">Planned</span>
               <div className="flex gap-4 opacity-50">
                 <span className="text-xs font-bold text-text-muted/60 underline decoration-primary/20">React Native</span>
-                <span className="text-xs font-bold text-text-muted/60 underline decoration-primary/20">Native iOS</span>
+                <span className="text-xs font-bold text-text-muted/60 underline decoration-primary/20">Native iOS/Android</span>
               </div>
             </div>
           </div>

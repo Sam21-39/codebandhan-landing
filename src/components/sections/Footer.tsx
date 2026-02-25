@@ -50,7 +50,7 @@ export function Footer() {
             CODEBANDHAN v0.1-BETA • BUILT FOR ARCHITECTS
           </p>
           <p className="text-[10px] uppercase tracking-widest font-black text-text-muted/50">
-            © {currentYear} • ALL RIGHTS RESERVED
+            © {currentYear} CodeBandhan. Built in India for global engineering teams.
           </p>
         </div>
       </div>

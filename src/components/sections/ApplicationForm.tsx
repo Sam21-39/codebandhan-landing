@@ -74,8 +74,8 @@ export function ApplicationForm() {
               className="glass-card p-10 md:p-16"
             >
               <div className="text-center mb-12">
-                <h2 className="text-3xl font-heading font-black text-white mb-4">Request Beta Access</h2>
-                <p className="text-text-muted text-sm">Join the next 30-day structural governance evaluation.</p>
+                <h2 className="text-3xl font-heading font-black text-white mb-4">Engineering Without Governance Doesn't Scale.</h2>
+                <p className="text-text-muted text-sm">Join the next beta cohort. Limited seats. Applications reviewed manually.</p>
               </div>
 
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
@@ -165,6 +165,14 @@ export function ApplicationForm() {
                 >
                   Request Beta Access
                 </Button>
+
+                <div className="pt-4 flex flex-col md:flex-row justify-center items-center gap-4 text-xs font-medium text-text-muted mt-4">
+                  <span className="flex items-center gap-1"><CheckCircle2 className="size-3 text-primary" /> 48-hour application review</span>
+                  <span className="hidden md:block text-border">•</span>
+                  <span className="flex items-center gap-1"><CheckCircle2 className="size-3 text-primary" /> Personal onboarding call</span>
+                  <span className="hidden md:block text-border">•</span>
+                  <span className="flex items-center gap-1"><CheckCircle2 className="size-3 text-primary" /> 14-day money-back guarantee</span>
+                </div>
               </form>
             </motion.div>
           ) : (

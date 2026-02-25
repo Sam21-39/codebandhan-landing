@@ -7,24 +7,24 @@ import { BrainCircuit, GitBranchPlus, GitMerge, FileCode2 } from 'lucide-react';
 
 const problems = [
   {
-    title: 'Silent Sprawl',
-    desc: 'Features slowly couple. Boundaries blur. Modules become impossible to test in isolation.',
+    title: 'Architectural Drift',
+    desc: 'Boundaries blur. Features couple silently.',
     icon: <GitBranchPlus className="size-6 text-primary" />,
   },
   {
-    title: 'Subjective Reviews',
-    desc: '"Feels wrong" isn\'t measurable. Structural integrity depends on reviewer bandwidth.',
+    title: 'Subjective Standards',
+    desc: '"Feels wrong" isn\'t measurable governance.',
     icon: <BrainCircuit className="size-6 text-primary" />,
   },
   {
-    title: 'Dependency Web',
-    desc: 'Services become tightly bound and fragile. Changing one endpoint breaks three others.',
-    icon: <GitMerge className="size-6 text-primary" />,
+    title: 'Individual Dependency',
+    desc: 'Discipline relies on senior devs\' vigilance.',
+    icon: <FileCode2 className="size-6 text-primary" />,
   },
   {
-    title: 'State Leaks',
-    desc: 'Patterns multiply without governance. Business logic leaks into the UI layer quietly.',
-    icon: <FileCode2 className="size-6 text-primary" />,
+    title: 'Reactive Enforcement',
+    desc: 'Problems surface in production, not PRs.',
+    icon: <GitMerge className="size-6 text-primary" />,
   }
 ];
 
@@ -35,8 +35,8 @@ export function Problem() {
         <div className="max-w-3xl mb-16">
           <span className="label-caps mb-4 block">The Challenge</span>
           <h2 className="text-4xl md:text-6xl font-heading font-black text-white leading-tight">
-            Complex Systems <br/>
-            <span className="text-text-muted italic">Scale Poorly.</span>
+            Most Teams Scale Code. <br/>
+            <span className="text-text-muted italic">Few Scale Discipline.</span>
           </h2>
         </div>
 
@@ -49,7 +49,7 @@ export function Problem() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
             >
-              <Card className="h-full flex flex-col gap-6 bg-surface/40 hover:bg-surface/60">
+              <Card className="h-full flex flex-col gap-6 bg-surface/40 hover:bg-surface/60 border border-transparent hover:border-primary/20 hover:shadow-[0_0_30px_rgba(0,200,150,0.15)] transition-all duration-300">
                 <div className="size-12 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center">
                   {p.icon}
                 </div>
@@ -62,6 +62,12 @@ export function Problem() {
               </Card>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <p className="text-xl font-bold text-white tracking-tight">
+            Without enforced structure, engineering becomes reactive.
+          </p>
         </div>
       </div>
     </section>

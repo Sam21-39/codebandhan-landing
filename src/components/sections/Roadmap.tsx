@@ -6,27 +6,27 @@ import { TimelineProgress } from '@/components/animations/TimelineProgress';
 
 const phases = [
   {
-    phase: 'Phase 1',
-    title: 'Governance Core (Now)',
-    items: ['Flutter rules engine', 'Express structural validation', 'Governance scoring layer'],
+    phase: 'Q1 2026',
+    title: 'Governance Core (Active)',
+    items: ['Flutter rules engine', 'Express structural validation', 'Developer + admin dashboards', 'Governance scoring system'],
     status: 'current'
   },
   {
-    phase: 'Phase 2',
-    title: 'CI & Automation',
-    items: ['PR feedback integration', 'Trend analytics', 'Role-based dashboards'],
+    phase: 'Q2 2026',
+    title: 'Automation & Scale',
+    items: ['CI/CD integration (GitHub Actions, GitLab)', 'Multi-repository governance', 'Trend analytics & forecasting', 'Slack/Discord notifications'],
     status: 'upcoming'
   },
   {
-    phase: 'Phase 3',
-    title: 'Multi-Framework Expansion',
-    items: ['React Native rules', 'Native mobile support', 'Backend ecosystem expansion'],
+    phase: 'Q3 2026',
+    title: 'Framework Expansion',
+    items: ['React Native rules engine', 'Native iOS/Android support', 'Backend ecosystem expansion (NestJS, Fastify)'],
     status: 'upcoming'
   },
   {
-    phase: 'Phase 4',
-    title: 'Platform Layer',
-    items: ['Custom rule engine', 'Organization analytics', 'Enterprise governance modules'],
+    phase: 'Q4 2026',
+    title: 'Platform Maturity',
+    items: ['Custom rule builder (no-code)', 'Organization-wide analytics', 'Compliance reporting layer', 'Self-hosted deployment option'],
     status: 'upcoming'
   }
 ];
@@ -44,7 +44,7 @@ export function Roadmap() {
         </div>
 
         <div className="relative max-w-4xl mx-auto">
-          <TimelineProgress containerRef={sectionRef} />
+          <TimelineProgress containerRef={sectionRef as React.RefObject<HTMLElement>} />
           
           <div className="space-y-24">
             {phases.map((p, i) => (

@@ -4,10 +4,10 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 const steps = [
-  { step: '01', title: 'Link Codebase', desc: 'Secure read-only access to your Flutter or Express codebases.' },
-  { step: '02', title: 'Analyze Architecture', desc: 'Validate against pre-defined or custom architectural guardrails.' },
-  { step: '03', title: 'Audit Integrity', desc: 'Get an instant governance score based on structural integrity.' },
-  { step: '04', title: 'Monitor Evolution', desc: 'Visualize how your structural risk changes over every commit.' }
+  { step: '01', title: 'Connect Repository', desc: 'GitHub integration via OAuth' },
+  { step: '02', title: 'Configure Rules', desc: 'Pre-built rules + custom configuration' },
+  { step: '03', title: 'Track Violations', desc: 'Developer dashboard + CI checks' },
+  { step: '04', title: 'Measure Governance', desc: 'Scoring trends + compliance analytics' }
 ];
 
 export function HowItWorks() {
@@ -32,7 +32,7 @@ export function HowItWorks() {
         <div className="mb-20">
           <span className="label-caps mb-4 block">The Process</span>
           <h2 className="text-4xl md:text-5xl font-heading font-black text-white tracking-tight">
-            How It Works
+            Four Steps to Structural Governance
           </h2>
         </div>
 
