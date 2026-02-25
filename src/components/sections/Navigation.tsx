@@ -1,19 +1,29 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import Image from 'next/image';
 
 export function Navigation() {
+  const { scrollY } = useScroll();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setIsScrolled(latest > 50);
+  });
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 py-6">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-4 bg-background/80 backdrop-blur-md border-b border-white/5 shadow-2xl shadow-black/50' : 'py-6 bg-transparent'}`}>
       <div className="container-wide flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="size-8 bg-primary rounded-lg flex items-center justify-center font-black text-background italic text-xl">
-            B
-          </div>
-          <span className="text-xl font-heading font-black tracking-tight text-white uppercase">
-            CodeBandhan
-          </span>
+        <div className="flex items-center">
+          <Image 
+            src="/codeBandhan.svg" 
+            alt="CodeBandhan Logo" 
+            width={185} 
+            height={24}
+            className="h-6 md:h-7 w-auto"
+            priority
+          />
         </div>
         
         <div className="hidden md:flex items-center gap-8">

@@ -83,7 +83,7 @@ export function Roadmap() {
                        boxShadow: p.status === 'current' ? '0 0 15px rgba(0,200,150,0.3)' : '0 0 5px rgba(0,200,150,0.1)',
                        scale: 1.1 // Subtler scale
                      }}
-                     viewport={{ once: false, margin: "-150px" }}
+                     viewport={{ once: true, margin: "-150px" }}
                      className={`size-3 rounded-full border-2 border-background z-10 transition-all duration-500`} // Smaller size
                    />
                 </div>

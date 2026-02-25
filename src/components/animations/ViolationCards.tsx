@@ -7,21 +7,21 @@ import { AlertTriangle, CheckCircle2, ShieldAlert } from 'lucide-react';
 const violations = [
   { 
     id: 1, 
-    title: 'Cross-feature import', 
-    icon: <ShieldAlert className="size-4 text-accent-critical" />,
-    desc: 'Feature A depends on Feature B internals'
+    title: 'Architectural Drift Detected', 
+    icon: <AlertTriangle className="size-4 text-accent-amber" />,
+    desc: 'Domain model leaking into presentation layer'
   },
   { 
     id: 2, 
-    title: 'Business Logic in UI', 
-    icon: <AlertTriangle className="size-4 text-accent-amber" />,
-    desc: 'Complex state derivation in view layer'
+    title: 'Security Guardrail Enforced', 
+    icon: <ShieldAlert className="size-4 text-accent-critical" />,
+    desc: 'Direct DB access bypassing service layer blocked'
   },
   { 
     id: 3, 
-    title: 'Circular Dependency', 
-    icon: <AlertTriangle className="size-4 text-accent-critical" />,
-    desc: 'Module loop detected in core'
+    title: 'Coupling Threshold Exceeded', 
+    icon: <AlertTriangle className="size-4 text-accent-amber" />,
+    desc: 'Tight coupling threatening microservice extraction'
   }
 ];
 

@@ -14,12 +14,13 @@ export function HowItWorks() {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"]
+    // Start tracking when the top of the section is at 70% from top of viewport
+    // End tracking when the top of the section reaches 20% from top of viewport
+    offset: ["start 70%", "start 20%"]
   });
 
-  // Adjusted mapping so the line connects cards as they enter view
-  const progressLine = useTransform(scrollYProgress, [0.35, 0.75], [0, 1]);
-  const scaleX = useSpring(progressLine, {
+  // Apply spring to the base progress so everything (line + cards) stays perfectly synced without lag
+  const smoothProgress = useSpring(scrollYProgress, {
     stiffness: 80,
     damping: 30,
     restDelta: 0.001
@@ -40,13 +41,13 @@ export function HowItWorks() {
           <div className="hidden lg:block absolute top-[44px] left-[12.5%] right-[12.5%] h-[2px] bg-border/20 z-0">
             <motion.div 
               className="h-full bg-primary shadow-[0_0_15px_rgba(0,200,150,0.5)] origin-left"
-              style={{ scaleX }}
+              style={{ scaleX: smoothProgress }}
             />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
             {steps.map((s, i) => (
-              <StepItem key={i} step={s} index={i} progress={scrollYProgress} />
+              <StepItem key={i} step={s} index={i} progress={smoothProgress} />
             ))}
           </div>
         </div>
@@ -56,13 +57,15 @@ export function HowItWorks() {
 }
 
 function StepItem({ step, index, progress }: { step: any, index: number, progress: any }) {
-  // Faster thresholds (0.1, 0.25, 0.4, 0.55) to ensure they light up early in view
-  // Thresholds adjusted to match the 0.35-0.75 range
-  const threshold = 0.35 + index * 0.13;
-  const opacity = useTransform(progress, [threshold - 0.15, threshold], [0.15, 1]);
-  const scale = useTransform(progress, [threshold - 0.15, threshold], [0.98, 1]);
-  const glow = useTransform(progress, [threshold - 0.15, threshold], ['0px 0px 0px rgba(0,200,150,0)', '0px 0px 20px rgba(0,200,150,0.2)']);
-  const borderColor = useTransform(progress, [threshold - 0.15, threshold], ['rgba(255,255,255,0.03)', 'rgba(0,200,150,0.25)']);
+  // Line goes from 0 to 1 over 4 cards. 
+  // Card 1 is at 0, Card 2 is at 0.33, Card 3 is at 0.66, Card 4 is at 0.99
+  const threshold = index * 0.333;
+  
+  // Cards light up mathematically in sync with the line reaching them
+  const opacity = useTransform(progress, [Math.max(0, threshold - 0.15), threshold], [0.15, 1]);
+  const scale = useTransform(progress, [Math.max(0, threshold - 0.15), threshold], [0.98, 1]);
+  const glow = useTransform(progress, [Math.max(0, threshold - 0.15), threshold], ['0px 0px 0px rgba(0,200,150,0)', '0px 0px 20px rgba(0,200,150,0.2)']);
+  const borderColor = useTransform(progress, [Math.max(0, threshold - 0.15), threshold], ['rgba(255,255,255,0.03)', 'rgba(0,200,150,0.25)']);
 
   return (
     <motion.div

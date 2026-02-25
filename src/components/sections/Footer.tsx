@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,13 +11,14 @@ export function Footer() {
       <div className="container-wide">
         <div className="grid md:grid-cols-4 gap-12 mb-20">
           <div className="col-span-2 space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="size-6 bg-primary/20 border border-primary/30 rounded flex items-center justify-center text-primary font-black text-xs">
-                B
-              </div>
-              <span className="text-lg font-heading font-black tracking-tight text-white uppercase">
-                CodeBandhan
-              </span>
+            <div className="flex items-center mb-2">
+              <Image 
+                src="/codeBandhan.svg" 
+                alt="CodeBandhan Logo" 
+                width={150} 
+                height={20}
+                className="h-5 w-auto opacity-90"
+              />
             </div>
             <p className="text-text-muted text-sm max-w-xs leading-relaxed">
               CodeBandhan v0.1 — Closed Beta. <br/>

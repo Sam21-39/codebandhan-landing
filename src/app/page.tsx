@@ -4,7 +4,6 @@ import { Problem } from '@/components/sections/Problem';
 import { Solution } from '@/components/sections/Solution';
 import { HowItWorks } from '@/components/sections/HowItWorks';
 import { Pricing } from '@/components/sections/Pricing';
-import { BetaAccess } from '@/components/sections/BetaAccess';
 import { FrameworkCoverage } from '@/components/sections/FrameworkCoverage';
 import { Roadmap } from '@/components/sections/Roadmap';
 import { Vision } from '@/components/sections/Vision';
@@ -21,11 +20,10 @@ export default function Home() {
         <Problem />
         <Solution />
         <HowItWorks />
-        <Pricing />
-        <BetaAccess />
         <FrameworkCoverage />
         <Roadmap />
         <Vision />
+        <Pricing />
         <ApplicationForm />
       </div>
 
