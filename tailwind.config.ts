@@ -11,29 +11,45 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#4d4dff",
-        "primary-hover": "#3a3add",
-        "background-light": "#f5f5f8",
-        "background-dark": "#0E1117",
-        "surface-dark": "#161b22",
-        "card-dark": "#161b22",
-        "border-dark": "#30363d",
-        "text-main": "#E6EDF3",
-        "text-muted": "#8b949e",
-        "text-secondary": "#8b949e",
+        background: "#0F1115",
+        surface: "#161A21",
+        border: {
+          DEFAULT: "#232833",
+          dark: "#1A1D23",
+        },
+        primary: {
+          DEFAULT: "#00C896", // Deep Emerald
+          hover: "#00E0A7",
+        },
+        accent: {
+          amber: "#FFB020",
+          critical: "#FF4D4F",
+        },
+        text: {
+          muted: "#8A8F98",
+        }
       },
       fontFamily: {
-        display: ["Inter", "sans-serif"],
-        sans: ["Inter", "sans-serif"],
+        sans: ["var(--font-inter)"],
+        heading: ["var(--font-space-grotesk)"],
+        mono: ["var(--font-jetbrains-mono)"],
       },
-      borderRadius: {
-        DEFAULT: "0.5rem",
-        lg: "0.75rem",
-        xl: "1rem",
-        "2xl": "1.5rem",
+      animation: {
+        'fade-in': 'fade-in 400ms cubic-bezier(0.4, 0, 0.2, 1)',
+        'slide-up': 'slide-up 400ms cubic-bezier(0.4, 0, 0.2, 1)',
       },
-      backgroundImage: {
-        'glow-gradient': 'radial-gradient(circle at center, rgba(77, 77, 255, 0.15) 0%, rgba(14, 17, 23, 0) 70%)',
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        'slide-up': {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+      transitionTimingFunction: {
+        'premium': 'cubic-bezier(0.4, 0, 0.2, 1)',
       }
     },
   },
