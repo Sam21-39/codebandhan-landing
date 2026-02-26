@@ -45,12 +45,12 @@ export function Authority() {
           >
             <div className="flex items-center gap-4">
               <div className="size-16 rounded-full bg-surface border border-border overflow-hidden shrink-0 flex items-center justify-center">
-                <span className="text-xl font-black text-white/50">S</span>
+                <img src="/architect-avatar.png" alt="The Architect" className="w-full h-full object-cover" />
               </div>
               <div>
-                <h4 className="text-lg font-black text-white">Built by Surya</h4>
+                <h4 className="text-lg font-black text-white">The Architect</h4>
                 <p className="text-sm font-bold text-primary uppercase tracking-widest mt-1 text-[10px]">
-                  Engineering Lead
+                  System Creator
                 </p>
               </div>
             </div>
@@ -58,10 +58,6 @@ export function Authority() {
             <p className="text-sm text-white/80 leading-relaxed italic border-l-2 border-primary/30 pl-4">
               "CodeBandhan exists to institutionalize what senior engineers already know: structure prevents chaos."
             </p>
-
-            <a href="#" className="inline-flex items-center text-xs font-bold text-text-muted hover:text-white transition-colors">
-              Connect on LinkedIn ↗
-            </a>
           </motion.div>
         </div>
       </div>
