@@ -105,7 +105,7 @@ function MatrixRain() {
   return (
     <canvas 
       ref={canvasRef} 
-      className="absolute inset-0 opacity-[0.08]" // Slightly higher opacity as requested
+      className="absolute inset-0 opacity-[0.35]" // Slightly higher opacity as requested
     />
   );
 }
